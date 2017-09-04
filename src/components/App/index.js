@@ -1,8 +1,9 @@
 // Following this tutorial: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
 // The primary function of this component is to route the application
-import React, { Component } from 'react';
+import React from 'react';
 import Main from 'Main';
 import Header from 'Header';
+import './App.css';
 
 // import logo from 'assets/logo.svg';
 // import './App.css';
@@ -22,15 +23,11 @@ import Header from 'Header';
 //   }
 // }
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Main />
-      </div>
-    )
-  }
-}
+const App = () => (
+  <div>
+    <Header />
+    <Main />
+  </div>
+)
 
 export default App;
