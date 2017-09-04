@@ -1,6 +1,6 @@
 # JS Webpack bundles and JS dependencies
 /node_modules
-# /build
+/build
 
 # Yarn
 yarn-error.log
