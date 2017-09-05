@@ -33,6 +33,18 @@ const postCssLoaderOptions = {
     }),
   ],
 }
+
+const baseObjectConfig = {
+  test: /\.(scss|sass|css)$/i,
+}
+
+const baseCssLoaderConfig = {
+  importLoaders: 2,
+  localIdentName: "[local]__[hash:base64:6]",
+  camelCase: true,
+  modules: true
+}
+
 // The notation here is somewhat confusing.
 // "postcss" loader applies autoprefixer to our CSS.
 // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -45,8 +57,7 @@ const postCssLoaderOptions = {
 // tags. If you use code splitting, however, any async bundles will still
 // use the "style" loader inside the async code so CSS from them won't be
 // in the main CSS file.
-const production = {
-  test: /\.css$/,
+const production = Object.assign({
   loader: ExtractTextPlugin.extract(
     Object.assign(
       {
@@ -54,15 +65,17 @@ const production = {
         use: [
           {
             loader: require.resolve('css-loader'),
-            options: {
-              importLoaders: 1,
+            options: Object.assign({
               minimize: true,
               sourceMap: shouldUseSourceMap,
-            },
+            }, baseCssLoaderConfig),
           },
           {
             loader: require.resolve('postcss-loader'),
             options: postCssLoaderOptions,
+          },
+          {
+            loader: "sass-loader"
           }
         ],
       },
@@ -70,28 +83,28 @@ const production = {
     )
   ),
   // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
-}
+}, baseObjectConfig)
 
 // "postcss" loader applies autoprefixer to our CSS.
 // "css" loader resolves paths in CSS and adds assets as dependencies.
 // "style" loader turns CSS into JS modules that inject <style> tags.
 // In production, we use a plugin to extract that CSS to a file, but
 // in development "style" loader enables hot editing of CSS.
-const development = {
-  test: /\.css$/,
+const development = Object.assign({
   use: [
     require.resolve('style-loader'),
     {
       loader: require.resolve('css-loader'),
-      options: {
-        importLoaders: 1,
-      },
+      options: baseCssLoaderConfig,
     },
     {
       loader: require.resolve('postcss-loader'),
       options: postCssLoaderOptions,
     },
+    {
+      loader: "sass-loader"
+    },
   ],
-}
+}, baseObjectConfig)
 
 module.exports = isProd ? production : development
