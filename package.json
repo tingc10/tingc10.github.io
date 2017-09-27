@@ -95,10 +95,10 @@
         "module-resolver",
         {
           "root": [
-            "./src/components"
+            "./src/client/components"
           ],
           "alias": {
-            "assets": "./src/assets"
+            "assets": "./src/client/assets"
           }
         }
       ]
