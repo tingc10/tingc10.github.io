@@ -13,16 +13,12 @@ var dotenv = require('dotenv');
 // The following code is taken from the create-react-app repo
 const getWebpackDevServerConfigs = require('./utils/webpack-dev-server-init') // https://github.com/facebookincubator/create-react-app/
 
-// Enable react server side rendering
-// var React = require('react');
-// var ReactDOM = require('react-dom/server');
-// var Router = require('react-router');
-// var Provider = require('react-redux').Provider;
+// React server side rendering is half baked, cribbed some code from
+// a boilerplate, but it's not working
+// var matchReactRoutes = require('./utils/react-routes-middleware')
 
 // Schema-based solution to model application data
 // var mongoose = require('mongoose'); // http://mongoosejs.com/
-// var webpack = require('webpack');
-// var config = require(path.resolve('config', 'webpack.config.dev'));
 
 // Load environment variables from .env file
 dotenv.load();
@@ -33,10 +29,6 @@ require('babel-polyfill');
 
 // Controllers
 // var contactController = require('./controllers/contact');
-
-// React and Server-Side Rendering
-// var routes = require('./app/routes');
-// var configureStore = require('./app/store/configureStore').default;
 
 var app = express();
 
@@ -57,32 +49,8 @@ app.use(cookieParser());
 app.use(express.static(path.resolve('public')));
 // app.post('/contact', contactController.contactPost);
 
-// // React server rendering
-// app.use(function(req, res) {
-//   var initialState = {
-//     messages: {}
-//   };
-
-//   var store = configureStore(initialState);
-
-//   Router.match({ routes: routes.default(store), location: req.url }, function(err, redirectLocation, renderProps) {
-//     if (err) {
-//       res.status(500).send(err.message);
-//     } else if (redirectLocation) {
-//       res.status(302).redirect(redirectLocation.pathname + redirectLocation.search);
-//     } else if (renderProps) {
-//       var html = ReactDOM.renderToString(React.createElement(Provider, { store: store },
-//         React.createElement(Router.RouterContext, renderProps)
-//       ));
-//       res.render('layouts/main', {
-//         html: html,
-//         initialState: store.getState()
-//       });
-//     } else {
-//       res.sendStatus(404);
-//     }
-//   });
-// });
+// React server rendering
+// app.use(matchReactRoutes);
 
 // Production error handler
 if (app.get('env') === 'production') {
@@ -92,16 +60,27 @@ if (app.get('env') === 'production') {
   });
 }
 
+// Currently using React Router to manage all get paths
+// Any path will return index.js then the client wil manage the proper view
+// This needs to be called last, otherwise bundle.js will also return index.html
+function catchAllGetRequests(app) {
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve('public', 'index.html'));
+  });
+}
+
 if (app.get('env') === 'development') {
   getWebpackDevServerConfigs((port,compiler, serverConfig) => {
     
     app.use(require('webpack-dev-middleware')(compiler, serverConfig));
     app.use(require('webpack-hot-middleware')(compiler));
+    catchAllGetRequests(app)
     app.listen(port, function() {
       console.log(chalk.cyan(`Starting the development server on port ${port}\n`));
     });
   })
 } else if (app.get('env') === 'production') {
+  catchAllGetRequests(app)
   app.listen(app.get('port'), function() {
     console.log(chalk.cyan(`Starting the production server on port ${app.get('port')}\n`));
   });

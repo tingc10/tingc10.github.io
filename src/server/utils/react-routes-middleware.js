@@ -1,3 +1,5 @@
+// STILL NEED LOTS OF WORK
+
 // Enable react server side rendering
 const path = require('path')
 var React = require('react');
