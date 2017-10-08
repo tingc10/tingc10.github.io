@@ -9,11 +9,12 @@ var bodyParser = require('body-parser');
 // String validator middleware for express
 var expressValidator = require('express-validator'); // https://github.com/ctavan/express-validator
 // Load environment variables from a .env file into `process.env`
-var dotenv = require('dotenv');
+require('dotenv').config();
 var paths = require(path.resolve('config/paths'))
+let getWebpackDevServerConfigs;
 if (process.env.NODE_ENV === 'development'){
   // The following code is taken from the create-react-app repo
-  const getWebpackDevServerConfigs = require('./utils/webpack-dev-server-init') // https://github.com/facebookincubator/create-react-app/
+  getWebpackDevServerConfigs = require('./utils/webpack-dev-server-init') // https://github.com/facebookincubator/create-react-app/
 }
 var publicPath = process.env.NODE_ENV === 'development' ? paths.appPublic : paths.appBuild
 // React server side rendering is half baked, cribbed some code from
@@ -22,9 +23,6 @@ var publicPath = process.env.NODE_ENV === 'development' ? paths.appPublic : path
 
 // Schema-based solution to model application data
 // var mongoose = require('mongoose'); // http://mongoosejs.com/
-
-// Load environment variables from .env file
-dotenv.config();
 
 // ES6 Transpiler
 require('babel-core/register');
