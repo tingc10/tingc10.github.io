@@ -66,8 +66,7 @@
     "start:webpack": "node scripts/start.js",
     "start:prod": "yarn build; yarn start;",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "heroku:bash": "heroku run --app ting-chen bash"
+    "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [

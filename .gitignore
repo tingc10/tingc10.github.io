@@ -1,7 +1,6 @@
 # JS Webpack bundles and JS dependencies
 .env
 /node_modules
-/build
 
 # Yarn
 yarn-error.log
