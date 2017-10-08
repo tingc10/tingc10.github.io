@@ -10,9 +10,12 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator'); // https://github.com/ctavan/express-validator
 // Load environment variables from a .env file into `process.env`
 var dotenv = require('dotenv');
-// The following code is taken from the create-react-app repo
-const getWebpackDevServerConfigs = require('./utils/webpack-dev-server-init') // https://github.com/facebookincubator/create-react-app/
-
+var paths = require(path.resolve('config/paths'))
+if (process.env.NODE_ENV === 'development'){
+  // The following code is taken from the create-react-app repo
+  const getWebpackDevServerConfigs = require('./utils/webpack-dev-server-init') // https://github.com/facebookincubator/create-react-app/
+}
+var publicPath = process.env.NODE_ENV === 'development' ? paths.appPublic : paths.appBuild
 // React server side rendering is half baked, cribbed some code from
 // a boilerplate, but it's not working
 // var matchReactRoutes = require('./utils/react-routes-middleware')
@@ -21,7 +24,7 @@ const getWebpackDevServerConfigs = require('./utils/webpack-dev-server-init') //
 // var mongoose = require('mongoose'); // http://mongoosejs.com/
 
 // Load environment variables from .env file
-dotenv.load();
+dotenv.config();
 
 // ES6 Transpiler
 require('babel-core/register');
@@ -46,7 +49,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
-app.use(express.static(path.resolve('public')));
+app.use(express.static(publicPath));
 // app.post('/contact', contactController.contactPost);
 
 // React server rendering
@@ -65,10 +68,9 @@ if (app.get('env') === 'production') {
 // This needs to be called last, otherwise bundle.js will also return index.html
 function catchAllGetRequests(app) {
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('public', 'index.html'));
+    res.sendFile(path.resolve(publicPath, 'index.html'));
   });
 }
-
 if (app.get('env') === 'development') {
   getWebpackDevServerConfigs((port,compiler, serverConfig) => {
     
