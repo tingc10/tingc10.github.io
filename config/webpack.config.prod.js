@@ -136,6 +136,6 @@ module.exports = merge(sharedConfig, {
       asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.(js|css|html|json|ico|svg|eot|otf|ttf)$/
-    })
+    }),
   ],
 });
