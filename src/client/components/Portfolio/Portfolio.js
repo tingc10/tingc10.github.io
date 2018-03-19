@@ -19,6 +19,7 @@ class Portfolio extends Component {
     return portfolioList[this.state.selectedImage]
   }
   render() {
+    console.log('hi i rendered');
     return (
       <div>
         <ExamineImage image={this.currentImage()} />

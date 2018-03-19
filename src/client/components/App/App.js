@@ -1,8 +1,8 @@
 // Following this tutorial: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
 // The primary function of this component is to route the application
 import React from 'react';
-import Main from 'Main';
-import Header from 'Header';
+import Main from 'Main/Main';
+import Header from 'Header/Header';
 import './App.css';
 
 // import logo from 'assets/logo.svg';
