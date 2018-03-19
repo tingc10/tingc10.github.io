@@ -40,7 +40,7 @@ var app = express();
 //   process.exit(1);
 // });
 
-app.set('port', process.env.PORT || 3002);
+app.set('port', process.env.PORT || 5000);
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -60,33 +60,9 @@ if (app.get('env') === 'production') {
     res.sendStatus(err.status || 500);
   });
 }
-
-// Currently using React Router to manage all get paths
-// Any path will return index.js then the client wil manage the proper view
-// This needs to be called last, otherwise bundle.js will also return index.html
-function catchAllGetRequests(app) {
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(publicPath, 'index.html'));
-  });
-}
-if (app.get('env') === 'development') {
-  getWebpackDevServerConfigs((port,compiler, serverConfig) => {
-    
-    app.use(require('webpack-dev-middleware')(compiler, serverConfig));
-    app.use(require('webpack-hot-middleware')(compiler));
-    catchAllGetRequests(app)
-    app.listen(port, function() {
-      console.log(chalk.cyan(`Starting the development server on port ${port}\n`));
-    });
-  })
-} else if (app.get('env') === 'production') {
-  catchAllGetRequests(app)
-  app.listen(app.get('port'), function() {
-    console.log(chalk.cyan(`Starting the production server on port ${app.get('port')}\n`));
-  });
-} else {
-  console.log("Invalid Environment");
-}
-
+https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0
+app.listen(app.get('port'), function() {
+  console.log(chalk.cyan(`Starting the ${app.get('env')} server on port ${app.get('port')}\n`));
+});
 
 module.exports = app;
