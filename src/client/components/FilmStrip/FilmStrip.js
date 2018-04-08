@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import ImagePreview from 'ImagePreview/ImagePreview'
-import styles from './styles.css'
+import styles from './styles.sass'
 
 class FilmStrip extends Component {
   renderPieces() {

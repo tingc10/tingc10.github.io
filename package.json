@@ -12,6 +12,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react-app": "^3.0.2",
+    "babel-preset-stage-3": "^6.24.1",
     "babel-runtime": "6.23.0",
     "body-parser": "^1.18.2",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
@@ -54,6 +55,7 @@
     "react-router-dom": "^4.1.2",
     "redux": "^3.7.2",
     "sass-loader": "^6.0.6",
+    "sharp": "^0.20.1",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
@@ -107,10 +109,13 @@
   },
   "babel": {
     "presets": [
-      "react",
-      "es2015"
+      "es2015",
+      "stage-3",
+      "react"
     ],
     "plugins": [
+      "react-hot-loader/babel",
+      "transform-class-properties",
       [
         "module-resolver",
         {
@@ -121,11 +126,13 @@
             "assets": "./src/client/assets"
           }
         }
-      ],
-      "react-hot-loader/babel"
+      ]
     ]
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }
