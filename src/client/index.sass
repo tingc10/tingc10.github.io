@@ -1,7 +1,7 @@
 /* https://fonts.google.com/specimen/Josefin+Sans?selection.family=Josefin+Sans:100,400,700|Roboto:300,400,500 */
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,400,700|Roboto:300,400,500')
-
-$background-dark-blue: #00274a
+@import '~styles/configs/fonts'
+@import '~styles/configs/colors'
 
 *,
 *::before,
@@ -13,12 +13,11 @@ body
   height: 100%
   margin: 0
   padding: 0
-  color: white
   font-family: 'Roboto', sans-serif
   font-family: 'Josefin Sans', sans-serif
-  background-color: $background-dark-blue
+  background-color: $navy-blue
   /* More textures at https://www.transparenttextures.com/ */
-  background-image: url("./assets/white-carbon.png");
+  // background-image: url("./assets/light-paper-fibers.png");
 
 #root
   display: inline-block
@@ -26,12 +25,14 @@ body
 
 h1
   font-weight: 100
-  font-size: 3em
+  font-size: $h1-font-size
   text-transform: uppercase
+  margin: 10px 0
 
 h2
   font-weight: 400
-  font-size: 2em
+  font-size: $h2-font-size
 
 h3
   font-weight: 400
+  font-size: $h3-font-size

@@ -134,6 +134,8 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1"
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "react-svg-loader": "^2.1.0",
+    "resolve-url-loader": "^2.3.0"
   }
 }

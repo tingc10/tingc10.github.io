@@ -1,0 +1,28 @@
+@import '~styles/configs/breakpoints';
+
+@mixin respond-to($media...) {
+  $media-list: null;
+  @each $query in $media {
+    $media-list: append($media-list, unquote("#{$query}"), comma);
+  }
+  @media #{$media-list} {
+    @content
+  }
+}
+
+// The most outer grid, should not be used nested
+@mixin apply-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 5fr);
+  grid-column-gap: $gutter-size;
+  max-width: $desktop-max-width;
+  margin: 0 auto;
+  padding: 0 $gutter-size/2;
+  left: 0;
+  right: 0;
+}
+
+@mixin fullscreen {
+  min-height: $mobile-portrait-min;
+  height: 100vh;
+}

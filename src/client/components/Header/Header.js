@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './styles.css'
+import styles from './styles';
 
 const Header = () => (
-  <header>
+  <header className={styles.container}>
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.navItem}>

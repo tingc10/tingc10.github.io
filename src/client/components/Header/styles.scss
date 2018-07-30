@@ -1,0 +1,29 @@
+@import '~styles/mixins/responsive';
+
+.container {
+  @include apply-grid;
+  position: absolute;
+  z-index: 1;
+}
+
+.nav {
+  padding: 30px 10px;
+  grid-column: 1 / 13;
+}
+
+.list {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  text-align: right;
+}
+
+.nav-item {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+}

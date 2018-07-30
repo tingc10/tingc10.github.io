@@ -1,6 +1,7 @@
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const paths = require('../paths');
+const path = require('path');
 const publicPath = paths.servedPath;
 const isProd = process.env.NODE_ENV == 'production';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -38,6 +39,10 @@ const baseObjectConfig = {
   test: /\.(scss|sass|css)$/i,
 }
 
+const sassLoaderOptions = {
+  loader: "sass-loader",
+}
+
 const baseCssLoaderConfig = {
   importLoaders: 2,
   localIdentName: "[local]__[hash:base64:6]",
@@ -71,12 +76,13 @@ const production = Object.assign({
             }, baseCssLoaderConfig),
           },
           {
+            loader: require.resolve('resolve-url-loader'),
+          },
+          {
             loader: require.resolve('postcss-loader'),
             options: postCssLoaderOptions,
           },
-          {
-            loader: "sass-loader"
-          }
+          sassLoaderOptions,
         ],
       },
       extractTextPluginOptions
@@ -98,12 +104,13 @@ const development = Object.assign({
       options: baseCssLoaderConfig,
     },
     {
+      loader: require.resolve('resolve-url-loader'),
+    },
+    {
       loader: require.resolve('postcss-loader'),
       options: postCssLoaderOptions,
     },
-    {
-      loader: "sass-loader"
-    },
+    sassLoaderOptions,
   ],
 }, baseObjectConfig)
 
