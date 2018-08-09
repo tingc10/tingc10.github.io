@@ -72,7 +72,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "client": "node scripts/start.js",
-    "server": "nodemon src/server/index.js",
+    "server": "node src/server/index.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "start": "yarn server",
     "heroku-postbuild": "yarn build"
@@ -137,6 +137,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "nodemon": "^1.18.3",
     "react-svg-loader": "^2.1.0",
     "resolve-url-loader": "^2.3.0"
   }
