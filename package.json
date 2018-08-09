@@ -73,7 +73,9 @@
     "test": "node scripts/test.js --env=jsdom",
     "client": "node scripts/start.js",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "yarn server",
+    "heroku-postbuild": "yarn build"
   },
   "jest": {
     "collectCoverageFrom": [
