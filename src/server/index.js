@@ -1,4 +1,3 @@
-/* Need to revisit using https://github.com/mars/heroku-cra-node instructions first
 const chalk = require('chalk');
 var express = require('express');
 var path = require('path');
@@ -11,6 +10,10 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator'); // https://github.com/ctavan/express-validator
 // Load environment variables from a .env file into `process.env`
 require('dotenv').config();
+
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
+
 var paths = require(path.resolve('config/paths'))
 let getWebpackDevServerConfigs;
 if (process.env.NODE_ENV === 'development'){
@@ -32,7 +35,6 @@ require('babel-polyfill');
 // Controllers
 // var contactController = require('./controllers/contact');
 
-var app = express();
 
 // var compiler = webpack(config);
 // mongoose.connect(process.env.MONGODB);
@@ -41,39 +43,6 @@ var app = express();
 //   process.exit(1);
 // });
 
-app.set('port', process.env.PORT || 5000);
-app.use(compression());
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(expressValidator());
-app.use(cookieParser());
-app.use(express.static(publicPath));
-// app.post('/contact', contactController.contactPost);
-
-// React server rendering
-// app.use(matchReactRoutes);
-
-// Production error handler
-if (app.get('env') === 'production') {
-  app.use(function(err, req, res, next) {
-    console.error(err.stack);
-    res.sendStatus(err.status || 500);
-  });
-}
-https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0
-app.listen(app.get('port'), function() {
-  console.log(chalk.cyan(`Starting the ${app.get('env')} server on port ${app.get('port')}\n`));
-});
-
-module.exports = app;
-*/
-const express = require('express');
-const path = require('path');
-const cluster = require('cluster');
-const numCPUs = require('os').cpus().length;
-
-const PORT = process.env.PORT || 5000;
 
 // Multi-process to utilize all CPU cores.
 if (cluster.isMaster) {
@@ -90,9 +59,27 @@ if (cluster.isMaster) {
 
 } else {
   const app = express();
-
+  const PORT = process.env.PORT || 5000;
+  app.set('port', PORT);
+  app.use(compression());
+  app.use(logger('dev'));
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(expressValidator());
+  app.use(cookieParser());
   // Priority serve any static files.
-  app.use(express.static(path.resolve(__dirname, '../../build')));
+  app.use(express.static(publicPath));
+
+  // React server rendering
+  // app.use(matchReactRoutes);
+
+  // Production error handler
+  if (app.get('env') === 'production') {
+    app.use(function(err, req, res, next) {
+      console.error(err.stack);
+      res.sendStatus(err.status || 500);
+    });
+  }
 
   // Answer API requests.
   app.get('/api', function (req, res) {
@@ -102,11 +89,11 @@ if (cluster.isMaster) {
 
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
-    response.sendFile(path.resolve(__dirname, '../../build', 'index.html'));
+    response.sendFile(path.resolve(publicPath, 'index.html'));
   });
 
+  // https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0
   app.listen(PORT, function () {
-    console.error(`Node cluster worker ${process.pid}: listening on port ${PORT}`);
+    console.log(chalk.cyan(`Node cluster worker ${process.pid}: listening on port ${PORT}\n`));
   });
 }
-
