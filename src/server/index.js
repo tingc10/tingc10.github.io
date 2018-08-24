@@ -87,6 +87,11 @@ if (cluster.isMaster) {
     res.send('{"message":"Hello from the custom server!"}');
   });
 
+  app.get('/api/oli', function (req, res) {
+    res.set('Content-Type', 'application/json');
+    res.send('{"message":"Hello, Oli!"}');
+  });
+
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
     response.sendFile(path.resolve(publicPath, 'index.html'));
