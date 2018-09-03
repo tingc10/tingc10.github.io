@@ -13,11 +13,12 @@
 // The most outer grid, should not be used nested
 @mixin apply-grid {
   display: grid;
-  grid-template-columns: repeat(12, 5fr);
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   grid-column-gap: $gutter-size;
   max-width: $desktop-max-width;
   margin: 0 auto;
-  padding: 0 $gutter-size/2;
+  padding-left: $gutter-size;
+  padding-right: $gutter-size;
   left: 0;
   right: 0;
 }
