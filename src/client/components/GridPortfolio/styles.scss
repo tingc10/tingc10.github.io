@@ -1,0 +1,85 @@
+@import '~styles/common';
+
+$hide-duration: 0.3s;
+
+.section {
+  position: relative;
+}
+
+.container {
+  @include apply-grid($min: 140px);
+  justify-items: stretch;
+  grid-auto-flow: dense;
+  grid-auto-rows: 180px;
+}
+
+.wrapper {
+  transition: $hide-duration opacity ease-out, 0.3s display ease 0.3s;
+}
+
+.hide-container {
+  opacity: 0;
+  display: none;
+}
+
+
+.header {
+  grid-column: 1 / -1;
+  align-self: flex-end;
+  color: $paper-white;
+}
+
+.selected-image {
+  transform: translateY(-200px);
+  z-index: 1;
+}
+
+.hide-image {
+  opacity: 0;
+}
+
+.image {
+  transition: 0.3s transform ease-out 0.1s, 0.2s opacity ease-out;
+}
+
+.enlarged-image-container {
+  @include apply-grid;
+  position: absolute;
+  top: 0;
+  background: $paper-white;
+  margin: 10px auto;
+  z-index: 1;
+  border-radius: 3px;
+  padding: 1em;
+  left: $gutter-size;
+  right: $gutter-size;
+}
+
+.enlarged-figure {
+  margin: 0 auto;
+  max-width: 1000px;
+  overflow: auto;
+  height: 90vh;
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.enlarged-image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  &.zoomed {
+    width: auto;
+    height: auto;
+  }
+}
+
+.close-button {
+  font-size: 2em;
+  grid-column: 1 / -1;
+  border: none;
+  background: transparent;
+  justify-self: flex-end;
+  cursor: pointer;
+}
+

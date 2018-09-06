@@ -11,9 +11,9 @@
 }
 
 // The most outer grid, should not be used nested
-@mixin apply-grid {
+@mixin apply-grid($min: 160px, $max: 1fr) {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax($min, $max));
   grid-column-gap: $gutter-size;
   max-width: $desktop-max-width;
   margin: 0 auto;
