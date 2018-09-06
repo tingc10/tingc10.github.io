@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import portfolioList from './list';
+import portfolioList from 'assets/misc/list';
 import FilmStrip from 'FilmStrip/FilmStrip';
 import ExamineImage from 'ExamineImage/ExamineImage';
 

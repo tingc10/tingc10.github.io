@@ -1,0 +1,54 @@
+@import '~styles/common';
+
+$edge-offset: 5px;
+
+.container {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background-color: $paper-white;
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: $global-box-shadow;
+
+  grid-column: span 2;
+  grid-row: span 2;
+
+  @include respond-to($mobile) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  &.large-horizontal {
+    grid-column: span 4;
+    @include respond-to($mobile) {
+      grid-column: span 2;
+    }    
+  }
+
+  &.large-vertical {
+    grid-row: span 3;
+    @include respond-to($mobile) {
+      grid-row: span 2;
+    }    
+  }
+
+}
+
+.image-container {
+  position: absolute;
+  bottom: 40px;
+  left: $edge-offset;
+  right: $edge-offset;
+  top: $edge-offset;
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
