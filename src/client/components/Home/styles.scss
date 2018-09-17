@@ -1,7 +1,4 @@
-@import '~styles/mixins/responsive';
-@import '~styles/configs/breakpoints';
-@import '~styles/configs/fonts';
-@import '~styles/configs/colors';
+@import '~styles/common';
 
 .container {
   @include apply-grid;
@@ -10,14 +7,13 @@
   position: relative;
   overflow: hidden;
   &::before {
+    @include paper;
     content: '';
     position: absolute;
     top: $gutter-size;
     right: $gutter-size;
     left: $gutter-size;
     bottom: $gutter-size;
-    background-color: $paper-white;
-    border-radius: 3px;
     animation: 0.5s ease-out forwards;
     animation-name: slide-up;
     // background-image: url('assets/light-paper-fibers.png');

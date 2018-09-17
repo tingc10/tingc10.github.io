@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import portfolioList from 'assets/misc/list';
-import FilmStrip from 'FilmStrip/FilmStrip';
+import FilmStrip from 'components/FilmStrip/FilmStrip';
 import classnames from 'classnames';
-// import ExamineImage from 'ExamineImage/ExamineImage';
-import ImagePreview from 'ImagePreview/ImagePreview';
-import Image from 'Image/Image';
+import ImagePreview from 'components/ImagePreview/ImagePreview';
+import Image from 'components/Image/Image';
 import styles from './styles';
 
-class GridPortfolio extends Component {
+class ArtPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -129,4 +128,4 @@ class GridPortfolio extends Component {
   }
 }
 
-export default GridPortfolio;
+export default ArtPortfolio;

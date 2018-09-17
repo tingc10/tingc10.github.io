@@ -18,3 +18,8 @@
     color: darken($navy-blue, 5%);
   }
 }
+
+@mixin paper {
+  background-color: $paper-white;
+  border-radius: 2px;
+}
