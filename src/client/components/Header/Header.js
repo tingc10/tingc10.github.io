@@ -12,6 +12,9 @@ const Header = () => (
         <li className={styles.navItem}>
           <Link className={styles.navLink} to='/portfolio'>Portfolio</Link>
         </li>
+        <li className={styles.navItem}>
+          <Link className={styles.navLink} to='/art'>Art</Link>
+        </li>
       </ul>
     </nav>
   </header>

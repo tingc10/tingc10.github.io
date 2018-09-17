@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.sass';
-import Image from 'Image/Image';
+import Image from 'components/Image/Image';
 import { TimelineMax, Power2 } from 'gsap';
 
 const playTimeline = (timeline) => {

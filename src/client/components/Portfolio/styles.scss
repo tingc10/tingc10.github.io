@@ -1,0 +1,35 @@
+@import '~styles/common';
+
+.container {
+  @include apply-grid;
+  @include paper;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin: 1em calc(auto - 1em);
+  padding: 1em;
+}
+
+.pens {
+  grid-column: 1 / -1;
+}
+
+.pen-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.pen-description {
+  flex: 2 1 200px;
+  margin-right: 20px;
+  font-size: 1.3em;
+  line-height: 1.2;
+}
+
+.pen {
+  flex: 3 1 500px;
+}
+
+.header {
+  margin: 20px 0;
+}

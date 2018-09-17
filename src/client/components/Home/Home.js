@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles';
-import AnimatedLogo from 'AnimatedLogo/AnimatedLogo';
+import AnimatedLogo from 'components/AnimatedLogo/AnimatedLogo';
 
 class Home extends Component {
   render() {

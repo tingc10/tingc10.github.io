@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import objectFitImages from 'object-fit-images';
 import classnames from 'classnames';
 
-import Image from 'Image/Image'
+import Image from 'components/Image/Image'
 import styles from './styles';
 
 class ImagePreview extends Component {
