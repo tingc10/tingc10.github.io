@@ -127,7 +127,7 @@ $animation-offset: 150ms;
       }
     }
     /**************************************/
-    $n-left-path-length: 49.900001525878906;
+    $n-left-path-length: 50;
     $n-left-duration: 0.2s;
     $n-left-total-duration: $i-base-total-duration + $n-left-duration;
     $n-left-animation-delay: $i-base-total-duration - $animation-offset;
@@ -147,7 +147,7 @@ $animation-offset: 150ms;
       }
     }
     /**************************************/
-    $n-right-path-length: 63.900001525878906;
+    $n-right-path-length: 64;
     $n-right-duration: 0.25s;
     $n-right-total-duration: $n-left-total-duration + $n-right-duration;
     $n-right-animation-delay: $n-left-total-duration - $animation-offset;
