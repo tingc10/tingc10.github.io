@@ -1,6 +1,6 @@
 {
-  "short_name": "Ting Chen",
-  "name": "Ting's personal page",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
