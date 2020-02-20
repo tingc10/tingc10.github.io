@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node" : "^10"
+    "node": "^10"
   },
   "dependencies": {
     "autoprefixer": "7.1.2",
@@ -79,7 +79,8 @@
     "client": "node scripts/start.js",
     "server": "node src/server/index.js",
     "start": "yarn server",
-    "heroku-postbuild": "yarn build"
+    "heroku-postbuild": "yarn build",
+    "deploy": "gh-pages -d build -b master"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -139,6 +140,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "gh-pages": "^2.2.0",
     "nodemon": "^1.18.3",
     "react-svg-loader": "^2.1.0",
     "resolve-url-loader": "^2.3.0"
