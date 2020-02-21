@@ -1,10 +1,15 @@
 @import '~styles/mixins/responsive';
+@import '~styles/configs/colors';
 
 .container {
   @include apply-grid;
   position: absolute;
   top: 0;
   z-index: 1;
+}
+
+.active {
+  color: $stamp-red;
 }
 
 .nav {

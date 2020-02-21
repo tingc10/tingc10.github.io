@@ -18,10 +18,10 @@ class Portfolio extends Component {
         <div
           className={styles.penContainer}
           key={index}>
-          <p className={styles.penDescription}>
+          <section className={styles.penDescription}>
             <h3>{title}</h3>
             <p>{description}</p>
-          </p>
+          </section>
           <CodepenEmbed
             {...props}
             className={styles.pen} />

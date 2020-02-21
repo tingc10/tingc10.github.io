@@ -5,18 +5,10 @@
 
 @mixin link {
   color: $navy-blue;
-
-  &:visited {
-    color: darken($navy-blue, 5%);
-  }
 }
 
 @mixin link--white {
   color: white;
-
-  &:visited {
-    color: darken($navy-blue, 5%);
-  }
 }
 
 @mixin paper {
