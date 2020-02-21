@@ -22,7 +22,7 @@ class CodepenEmbed extends Component {
     } = this.props;
 
     return (
-      <figure>
+      <figure className={this.props.className}>
         <p
           data-height="500"
           data-theme-id="dark"
