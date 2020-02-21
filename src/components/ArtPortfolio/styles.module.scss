@@ -1,13 +1,17 @@
 @import '~styles/common';
+@import '~styles/mixins/patterns';
 
 $hide-duration: 0.3s;
 
-.section {
+.container {
+  @include paper-container;
   position: relative;
 }
 
-.container {
+.art-container {
   @include apply-grid($min: 140px);
+  width: 100%;
+  grid-column: 1 / -1;
   justify-items: stretch;
   grid-auto-flow: dense;
   grid-auto-rows: 180px;

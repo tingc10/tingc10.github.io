@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import ImagePreview from 'components/ImagePreview/ImagePreview';
 import Image from 'components/Image/Image';
 import styles from './styles.module.scss';
+import PageHeader from '../PageHeader/PageHeader';
 
 class ArtPortfolio extends Component {
   constructor(props) {
@@ -107,9 +108,9 @@ class ArtPortfolio extends Component {
   renderMain() {
     if (this.state.selectedImage === -1) {
       return (
-        <div className={styles.container}>
+        <>
           {this.renderPieces()}
-        </div>
+        </>
       );
     }
     return this.renderEnlargedImage();
@@ -117,11 +118,13 @@ class ArtPortfolio extends Component {
 
   render() {
     return (
-      <section className={styles.section}>
-        <header className={styles.container}>
-          <h1 className={styles.header}>Studio Art days</h1>
+      <section className={styles.container}>
+        <header>
+          <PageHeader>Art</PageHeader>
         </header>
-        {this.renderMain()}
+        <section className={styles.artContainer}>
+          {this.renderMain()}
+        </section>
       </section>
     );
   }

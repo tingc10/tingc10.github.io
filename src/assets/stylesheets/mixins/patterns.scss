@@ -1,0 +1,6 @@
+@mixin paper-container {
+  @include apply-grid;
+  @include paper;
+  margin: 1em;
+  padding: 1em;
+}

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { codepenSamples } from 'assets/misc/codepen-samples';
 import CodepenEmbed from 'components/CodepenEmbed/CodepenEmbed';
 import styles from './styles.module.scss';
+import PageHeader from '../PageHeader/PageHeader';
 
 class Portfolio extends Component {
   renderCodepenSamples() {
@@ -34,9 +35,9 @@ class Portfolio extends Component {
     return (
       <section className={styles.container}>
         <header className={styles.header}>
-          <h1>
-            Portfolio
-          </h1>
+          <PageHeader>
+            Code
+          </PageHeader>
         </header>
         <div className={styles.pens}>
           {this.renderCodepenSamples()}
