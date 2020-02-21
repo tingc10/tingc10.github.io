@@ -1,0 +1,25 @@
+@import '~styles/mixins/responsive';
+@import '~styles/configs/breakpoints';
+@import '~styles/configs/fonts';
+@import '~styles/configs/colors';
+
+@mixin link {
+  color: $navy-blue;
+
+  &:visited {
+    color: darken($navy-blue, 5%);
+  }
+}
+
+@mixin link--white {
+  color: white;
+
+  &:visited {
+    color: darken($navy-blue, 5%);
+  }
+}
+
+@mixin paper {
+  background-color: $paper-white;
+  border-radius: 2px;
+}

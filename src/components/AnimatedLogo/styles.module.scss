@@ -1,0 +1,210 @@
+@import '~styles/configs/colors';
+$logo-width: 180px;
+$animation-offset: 150ms;
+
+.container {
+  position: relative;
+  width: $logo-width;
+  margin: 0;
+  &::before {
+    content: '';
+    position: relative;
+    padding: 47.5%;
+    display: block;
+  }
+}
+
+.logo {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  :global {
+    .st0 {
+      fill:none;
+      stroke:#CC0000;
+      stroke-width:8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    /**************************************/
+    $guider-path-length: 486;
+    $guider-length: 10;
+    $animation-duration: 1s;
+    #guider {
+      stroke-dasharray: $guider-length $guider-path-length;
+      animation: $animation-duration guider ease-in-out forwards;
+    }
+
+    @keyframes :global(guider) {
+      0% {
+        stroke-dashoffset: 0
+      }
+      100% {
+        stroke-dashoffset: -$guider-path-length;
+      }
+    }
+    /**************************************/
+    $t-top-path-length: 84;
+    $t-top-animation-duration: $animation-duration * 0.26;
+    $t-top-animation-delay: $animation-duration * .711;
+    $t-top-total-duration: $t-top-animation-delay + $t-top-animation-duration;
+    #t-top {
+      stroke-dasharray: $t-top-path-length;
+      stroke-dashoffset: $t-top-path-length;
+      animation: $t-top-animation-duration t-top ease-out forwards;
+      animation-delay: $t-top-animation-delay;
+    }
+
+    @keyframes :global(t-top) {
+      from {
+        stroke-dashoffset: $t-top-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    /**************************************/
+    $t-bottom-path-length: 65.9000015258789;
+    $t-bottom-animation-delay: $t-top-total-duration - $animation-offset;
+    $t-bottom-duration: 0.2s;
+    $t-bottom-total-duration: $t-top-total-duration + $t-bottom-duration;
+    #t-bottom {
+      stroke-dasharray: $t-bottom-path-length;
+      stroke-dashoffset: $t-bottom-path-length;
+      animation: $t-bottom-duration t-bottom ease-in-out forwards;
+      animation-delay: $t-bottom-animation-delay;
+    }
+
+
+    @keyframes :global(t-bottom) {
+      from {
+        stroke-dashoffset: $t-bottom-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    /**************************************/
+    $dot-path-length: 5;
+    $dot-duration: 0.1s;
+    $dot-total-duration: $t-bottom-total-duration + $dot-duration;
+    $dot-animation-delay: $t-bottom-total-duration - $animation-offset;
+    #dot {
+      stroke-dasharray: $dot-path-length;
+      stroke-dashoffset: $dot-path-length;
+      animation: $dot-duration dot ease-in-out forwards;
+      animation-delay: $dot-animation-delay;
+    }
+
+    @keyframes :global(dot) {
+      from {
+        stroke-dashoffset: $dot-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    /**************************************/
+    $i-base-path-length: 29.99;
+    $i-base-duration: 0.15s;
+    $i-base-total-duration: $dot-total-duration + $i-base-duration;
+    $i-base-animation-delay: $dot-total-duration - $animation-offset;
+    #i-base {
+      stroke-dasharray: $i-base-path-length;
+      stroke-dashoffset: $i-base-path-length;
+      animation: $i-base-duration i-base ease-in-out forwards;
+      animation-delay: $i-base-animation-delay;
+    }
+
+    @keyframes :global(i-base) {
+      from {
+        stroke-dashoffset: $i-base-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    /**************************************/
+    $n-left-path-length: 50;
+    $n-left-duration: 0.2s;
+    $n-left-total-duration: $i-base-total-duration + $n-left-duration;
+    $n-left-animation-delay: $i-base-total-duration - $animation-offset;
+    #n-left {
+      stroke-dasharray: $n-left-path-length;
+      stroke-dashoffset: $n-left-path-length;
+      animation: $n-left-duration n-left ease-in-out forwards;
+      animation-delay: $n-left-animation-delay;
+    }
+
+    @keyframes :global(n-left) {
+      from {
+        stroke-dashoffset: $n-left-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    /**************************************/
+    $n-right-path-length: 64;
+    $n-right-duration: 0.25s;
+    $n-right-total-duration: $n-left-total-duration + $n-right-duration;
+    $n-right-animation-delay: $n-left-total-duration - $animation-offset;
+    #n-right {
+      stroke-dasharray: $n-right-path-length;
+      stroke-dashoffset: $n-right-path-length;
+      animation: $n-right-duration n-right ease-in-out forwards;
+      animation-delay: $n-right-animation-delay;
+    }
+
+    @keyframes :global(n-right) {
+      from {
+        stroke-dashoffset: $n-right-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    /**************************************/
+    $g-path-length: 228.9014892578125;
+    $g-duration: 0.75s;
+    $g-total-duration: $n-right-total-duration + $g-duration;
+    $g-animation-delay: $n-right-total-duration - $animation-offset;
+    #g {
+      stroke-dasharray: $g-path-length;
+      stroke-dashoffset: $g-path-length;
+      animation: $g-duration g ease-in-out forwards;
+      animation-delay: $g-animation-delay;
+    }
+
+    @keyframes :global(g) {
+      from {
+        stroke-dashoffset: $g-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    /**************************************/
+    $border-path-length: 452;
+    $border-duration: 0.75s;
+    $border-total-duration: $g-total-duration + $border-duration;
+    $border-animation-delay: $g-total-duration - 0.4;
+    #border {
+      stroke-dasharray: $border-path-length;
+      stroke-dashoffset: $border-path-length;
+      animation: $border-duration border ease-in-out forwards;
+      animation-delay: $border-animation-delay;
+    }
+
+    @keyframes :global(border) {
+      from {
+        stroke-dashoffset: $border-path-length;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}
