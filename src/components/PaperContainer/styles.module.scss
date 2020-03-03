@@ -1,0 +1,39 @@
+@import '~styles/common';
+@import '~styles/mixins/patterns';
+
+$initial-slide-offset: 30vh;
+$slide-in-duration: 0.5s;
+
+.container {
+  @include paper-container;
+  position: relative;
+
+  &::before {
+    content: '';
+    @include paper;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(0, $initial-slide-offset, 0);
+    animation: $slide-in-duration ease-out forwards;
+    animation-name: slide-up;
+  }
+
+  & > * {
+    z-index: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translate3d(0, $initial-slide-offset, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

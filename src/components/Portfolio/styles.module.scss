@@ -1,10 +1,6 @@
 @import '~styles/common';
 @import '~styles/mixins/patterns';
 
-.container {
-  @include paper-container;
-}
-
 .samples {
   grid-column: 1 / -1;
 }
