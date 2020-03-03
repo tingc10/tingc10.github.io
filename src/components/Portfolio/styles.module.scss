@@ -2,7 +2,7 @@
 @import '~styles/mixins/patterns';
 
 .container {
-  @include paper-container
+  @include paper-container;
 }
 
 .pens {
@@ -12,7 +12,7 @@
 .pen-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .pen-description {
@@ -24,4 +24,8 @@
 
 .pen {
   flex: 3 1 500px;
+}
+
+.header {
+  grid-column: 1 / 3;
 }

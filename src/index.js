@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader'
-import './index.sass';
+import './index.scss';
 import App from './components/App/App';
 import registerServiceWorker from './workers/registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom'

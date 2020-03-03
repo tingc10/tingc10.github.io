@@ -119,9 +119,7 @@ class ArtPortfolio extends Component {
   render() {
     return (
       <section className={styles.container}>
-        <header>
-          <PageHeader>Art</PageHeader>
-        </header>
+        <PageHeader description="Drawings and paitings from when I pursued art school.">Art</PageHeader>
         <section className={styles.artContainer}>
           {this.renderMain()}
         </section>

@@ -34,11 +34,9 @@ class Portfolio extends Component {
   render() {
     return (
       <section className={styles.container}>
-        <header className={styles.header}>
-          <PageHeader>
-            Code
-          </PageHeader>
-        </header>
+        <PageHeader description="A few web snippets and projects I enjoyed making.">
+          Code
+        </PageHeader>
         <div className={styles.pens}>
           {this.renderCodepenSamples()}
         </div>
