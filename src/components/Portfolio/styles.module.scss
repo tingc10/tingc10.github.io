@@ -5,27 +5,6 @@
   @include paper-container;
 }
 
-.pens {
+.samples {
   grid-column: 1 / -1;
-}
-
-.pen-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px 0;
-}
-
-.pen-description {
-  flex: 2 1 200px;
-  margin-right: 20px;
-  font-size: 1.3em;
-  line-height: 1.2;
-}
-
-.pen {
-  flex: 3 1 500px;
-}
-
-.header {
-  grid-column: 1 / 3;
 }

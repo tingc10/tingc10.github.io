@@ -1,6 +1,11 @@
+$margin-offset: 1em;
+$inner-padding: 1em;
+
 @mixin paper-container {
   @include apply-grid;
   @include paper;
-  margin: 1em;
-  padding: 1em;
+  margin: $margin-offset;
+  margin-top: -$margin-offset;
+  padding: $inner-padding;
+  padding-top: 4em;
 }

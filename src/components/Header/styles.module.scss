@@ -1,20 +1,23 @@
 @import '~styles/mixins/responsive';
 @import '~styles/configs/colors';
+@import '~styles/common';
 
 .container {
   @include apply-grid;
-  position: absolute;
+  @include paper;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  position: fixed;
   top: 0;
   z-index: 1;
-  right: 1em;
+  right: 0;
+  left: 0;
+  padding: 1em;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .active {
   color: $stamp-red;
-}
-
-.nav {
-  padding: 30px 10px;
 }
 
 .list {
