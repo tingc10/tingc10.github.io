@@ -19,6 +19,7 @@ $animation-offset: 150ms;
   height: 100%;
   top: 0;
   right: 0;
+  transform: translateZ(0);
 
   :global {
     .st0 {

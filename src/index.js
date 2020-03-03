@@ -6,18 +6,14 @@ import App from './components/App/App';
 import registerServiceWorker from './workers/registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom'
 
-setTimeout(() => {
-  ReactDOM.render((
-    <AppContainer>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </AppContainer>
-  ), document.getElementById('root'));
-  registerServiceWorker();
-})
-
-
+ReactDOM.render((
+  <AppContainer>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </AppContainer>
+), document.getElementById('root'));
+registerServiceWorker();
 
 // Hot Module Replacement API
 if (module.hot) {

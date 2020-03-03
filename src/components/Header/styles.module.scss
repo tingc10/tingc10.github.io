@@ -22,6 +22,7 @@ $initial-slide-offset: -101%;
   animation: $animation-duration ease-out forwards;
   animation-delay: $paper-entry-duration;
   animation-name: slide-down;
+  will-change: transform;
 }
 
 .active {

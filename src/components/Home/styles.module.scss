@@ -27,6 +27,7 @@
   animation: 0.3s ease-out forwards;
   animation-name: slide-right;
   animation-delay: 800ms;
+  will-change: transform, opacity;
 }
 
 .intro {
@@ -37,15 +38,16 @@
   animation: 0.3s ease-out forwards;
   animation-name: slide-right;
   animation-delay: 1.5s;
+  will-change: transform, opacity;
 }
 
 @keyframes slide-right {
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translate3d(-20px, 0, 0);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }

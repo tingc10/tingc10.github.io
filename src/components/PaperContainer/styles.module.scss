@@ -11,12 +11,14 @@ $slide-in-duration: 0.5s;
   &::before {
     content: '';
     @include paper;
+    opacity: 0;
     position: absolute;
     width: 100%;
     height: 100%;
     transform: translate3d(0, $initial-slide-offset, 0);
     animation: $slide-in-duration ease-out forwards;
     animation-name: slide-up;
+    will-change: transform, opacity;
   }
 
   & > * {
