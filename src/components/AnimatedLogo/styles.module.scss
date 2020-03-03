@@ -33,16 +33,19 @@ $animation-offset: 150ms;
     $guider-length: 10;
     $animation-duration: 1s;
     #guider {
+      opacity: 0;
       stroke-dasharray: $guider-length $guider-path-length;
       animation: $animation-duration guider ease-in-out forwards;
     }
 
     @keyframes :global(guider) {
       0% {
-        stroke-dashoffset: 0
+        stroke-dashoffset: 0;
+        opacity: 1;
       }
       100% {
         stroke-dashoffset: -$guider-path-length;
+        opacity: 1;
       }
     }
     /**************************************/
@@ -51,6 +54,7 @@ $animation-offset: 150ms;
     $t-top-animation-delay: $animation-duration * .711;
     $t-top-total-duration: $t-top-animation-delay + $t-top-animation-duration;
     #t-top {
+      opacity: 0;
       stroke-dasharray: $t-top-path-length;
       stroke-dashoffset: $t-top-path-length;
       animation: $t-top-animation-duration t-top ease-out forwards;
@@ -59,9 +63,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(t-top) {
       from {
+        opacity: 1;
         stroke-dashoffset: $t-top-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
@@ -71,6 +77,7 @@ $animation-offset: 150ms;
     $t-bottom-duration: 0.2s;
     $t-bottom-total-duration: $t-top-total-duration + $t-bottom-duration;
     #t-bottom {
+      opacity: 0;
       stroke-dasharray: $t-bottom-path-length;
       stroke-dashoffset: $t-bottom-path-length;
       animation: $t-bottom-duration t-bottom ease-in-out forwards;
@@ -80,9 +87,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(t-bottom) {
       from {
+        opacity: 1;
         stroke-dashoffset: $t-bottom-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
@@ -92,6 +101,7 @@ $animation-offset: 150ms;
     $dot-total-duration: $t-bottom-total-duration + $dot-duration;
     $dot-animation-delay: $t-bottom-total-duration - $animation-offset;
     #dot {
+      opacity: 0;
       stroke-dasharray: $dot-path-length;
       stroke-dashoffset: $dot-path-length;
       animation: $dot-duration dot ease-in-out forwards;
@@ -100,9 +110,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(dot) {
       from {
+        opacity: 1;
         stroke-dashoffset: $dot-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
@@ -112,6 +124,7 @@ $animation-offset: 150ms;
     $i-base-total-duration: $dot-total-duration + $i-base-duration;
     $i-base-animation-delay: $dot-total-duration - $animation-offset;
     #i-base {
+      opacity: 0;
       stroke-dasharray: $i-base-path-length;
       stroke-dashoffset: $i-base-path-length;
       animation: $i-base-duration i-base ease-in-out forwards;
@@ -120,9 +133,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(i-base) {
       from {
+        opacity: 1;
         stroke-dashoffset: $i-base-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
@@ -132,6 +147,7 @@ $animation-offset: 150ms;
     $n-left-total-duration: $i-base-total-duration + $n-left-duration;
     $n-left-animation-delay: $i-base-total-duration - $animation-offset;
     #n-left {
+      opacity: 0;
       stroke-dasharray: $n-left-path-length;
       stroke-dashoffset: $n-left-path-length;
       animation: $n-left-duration n-left ease-in-out forwards;
@@ -140,9 +156,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(n-left) {
       from {
+        opacity: 1;
         stroke-dashoffset: $n-left-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
@@ -152,6 +170,7 @@ $animation-offset: 150ms;
     $n-right-total-duration: $n-left-total-duration + $n-right-duration;
     $n-right-animation-delay: $n-left-total-duration - $animation-offset;
     #n-right {
+      opacity: 0;
       stroke-dasharray: $n-right-path-length;
       stroke-dashoffset: $n-right-path-length;
       animation: $n-right-duration n-right ease-in-out forwards;
@@ -160,9 +179,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(n-right) {
       from {
+        opacity: 1;
         stroke-dashoffset: $n-right-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
@@ -172,6 +193,7 @@ $animation-offset: 150ms;
     $g-total-duration: $n-right-total-duration + $g-duration;
     $g-animation-delay: $n-right-total-duration - $animation-offset;
     #g {
+      opacity: 0;
       stroke-dasharray: $g-path-length;
       stroke-dashoffset: $g-path-length;
       animation: $g-duration g ease-in-out forwards;
@@ -180,9 +202,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(g) {
       from {
+        opacity: 1;
         stroke-dashoffset: $g-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
@@ -192,6 +216,7 @@ $animation-offset: 150ms;
     $border-total-duration: $g-total-duration + $border-duration;
     $border-animation-delay: $g-total-duration - 0.4;
     #border {
+      opacity: 0;
       stroke-dasharray: $border-path-length;
       stroke-dashoffset: $border-path-length;
       animation: $border-duration border ease-in-out forwards;
@@ -200,9 +225,11 @@ $animation-offset: 150ms;
 
     @keyframes :global(border) {
       from {
+        opacity: 1;
         stroke-dashoffset: $border-path-length;
       }
       to {
+        opacity: 1;
         stroke-dashoffset: 0;
       }
     }
