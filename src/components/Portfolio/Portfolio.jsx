@@ -14,10 +14,9 @@ class Portfolio extends Component {
         <div className={styles.samples}>
           <CodepenSamples />
           <ProjectSection title="Virtual Couch Gaming" renderDescription={() => (
-            <>
-              <span>
-                A proof of concept multiplayer game using your mobile phone as gamepads. Play locally or remote! Check it out <a href="https://tingchen.me/pong-client/">here!</a></span>
-            </>
+            <p>
+              A proof of concept multiplayer game using your mobile phone as gamepads. Play locally or remotely! Load the <a href="https://tingchen.me/pong-client/index.html">host client</a> on a desktop to try it out.
+            </p>
           )}>
             <video autoPlay={true} className={styles.pongVideo} loop={true}>
               <source src="https://s3-us-west-1.amazonaws.com/tingchen.me/demo/pong-demo.mp4" type="video/mp4" />
