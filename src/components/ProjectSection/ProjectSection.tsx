@@ -3,15 +3,17 @@ import styles from './styles.module.scss';
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
+  renderDescription?: React.SFC;
 }
 
-const ProjectSection: React.SFC<Props> = ({title, description, children}) => {
+const ProjectSection: React.SFC<Props> = ({title, description, renderDescription: RenderedDescription, children}) => {
   return <div
     className={styles.container}>
     <section className={styles.description}>
       <h3 className={styles.title}>{title}</h3>
-      <p>{description}</p>
+      { description && <p>{description}</p>}
+      { RenderedDescription && <RenderedDescription />}
     </section>
     {children}
   </div>
