@@ -23,6 +23,12 @@ $slide-in-duration: 0.5s;
 
   & > * {
     z-index: 1;
+
+    opacity: 0;
+    animation: 300ms ease-out forwards;
+    animation-name: fade-in;
+    animation-delay: 600ms;
+    will-change: opacity;
   }
 }
 
@@ -36,6 +42,15 @@ $slide-in-duration: 0.5s;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }

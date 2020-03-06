@@ -7,7 +7,7 @@ import ProjectSection from '../ProjectSection/ProjectSection';
 class Portfolio extends Component {
   render() {
     return (
-      <>
+      <div>
         <PageHeader description="A few web snippets and projects I enjoyed making.">
           Code
         </PageHeader>
@@ -25,7 +25,7 @@ class Portfolio extends Component {
             </video>
           </ProjectSection>
         </div>
-      </>
+      </div>
     );
   }
 }

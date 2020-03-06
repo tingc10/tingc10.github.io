@@ -118,12 +118,12 @@ class ArtPortfolio extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <PageHeader description="Drawings and paitings from when I pursued art school.">Art</PageHeader>
         <div className={styles.artContainer}>
           {this.renderMain()}
         </div>
-      </>
+      </div>
     );
   }
 }
