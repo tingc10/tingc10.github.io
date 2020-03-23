@@ -4,6 +4,12 @@
 $initial-slide-offset: 30vh;
 $slide-in-duration: 0.5s;
 
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: $desktop-max-width;
+}
+
 .container {
   @include paper-container;
   position: relative;

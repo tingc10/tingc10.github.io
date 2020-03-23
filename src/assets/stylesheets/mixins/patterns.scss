@@ -3,8 +3,8 @@ $inner-padding: 1em;
 
 @mixin paper-container {
   @include apply-grid;
-  margin: $margin-offset;
-  margin-top: -$margin-offset;
+  max-width: calc(1600px - 2 * #{$margin-offset});
+  margin: 0 $margin-offset;
   padding: $inner-padding;
   padding-top: 4em;
   min-height: 100.1vh;

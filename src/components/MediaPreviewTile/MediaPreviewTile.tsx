@@ -8,7 +8,7 @@ export enum MediaSizing {
 }
 
 interface Props {
-  onClick: (e: React.MouseEvent, index: number) => void;
+  onClick?: (e: React.MouseEvent, index: number) => void;
   customSizing?: MediaSizing[];
   className?: string;
   index: number;
