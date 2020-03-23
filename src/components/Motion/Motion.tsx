@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
-import CodepenSamples from 'components/CodepenSamples/CodepenSamples';
-import ProjectSection from '../ProjectSection/ProjectSection';
+// import CodepenSamples from 'components/CodepenSamples/CodepenSamples';
+// import ProjectSection from '../ProjectSection/ProjectSection';
 
 class Portfolio extends Component {
   render() {

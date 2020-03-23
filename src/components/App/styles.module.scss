@@ -3,3 +3,8 @@
   max-width: 100vw;
   overflow: hidden;
 }
+
+.portal {
+  position: relative;
+  z-index: 3;
+}

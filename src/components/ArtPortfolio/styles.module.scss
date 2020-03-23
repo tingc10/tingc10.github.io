@@ -46,44 +46,17 @@ $hide-duration: 0.3s;
   transition: 0.3s transform ease-out 0.1s, 0.2s opacity ease-out;
 }
 
-.enlarged-image-container {
-  @include apply-grid;
-  position: absolute;
-  top: 0;
-  background: $paper-white;
-  margin: 10px auto;
-  z-index: 1;
-  border-radius: 3px;
-  padding: 1em;
-  left: $gutter-size;
-  right: $gutter-size;
-}
-
-.enlarged-figure {
-  margin: 0 auto;
-  max-width: 1000px;
-  overflow: auto;
-  height: 90vh;
-  width: 100%;
-  grid-column: 1 / -1;
-}
-
 .enlarged-image {
-  width: 100%;
-  height: 100%;
   cursor: pointer;
+  padding: 1em;
+  background: $paper-white;
+  border-radius: 2px;
+  max-height: 90vh;
+  width: auto;
+  max-width: 100%;
+
   &.zoomed {
     width: auto;
     height: auto;
   }
 }
-
-.close-button {
-  font-size: 2em;
-  grid-column: 1 / -1;
-  border: none;
-  background: transparent;
-  justify-self: flex-end;
-  cursor: pointer;
-}
-

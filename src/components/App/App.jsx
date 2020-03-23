@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 
 const App = () => (
   <div className={styles.container}>
+    <div id='js-portal' className={styles.portal}/>
     <Header />
     <Main />
   </div>
