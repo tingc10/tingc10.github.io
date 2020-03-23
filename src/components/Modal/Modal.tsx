@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import styles from './styles.module.scss';
 
 interface Props  {
-  onClickBackground: () => void;
+  onClickBackground?: () => void;
 }
 
 const Modal: React.SFC<Props> = ({ 
@@ -23,8 +23,7 @@ const Modal: React.SFC<Props> = ({
   }, [])
 
   function handleChildClick(e: React.MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
   }
   
   return ReactDOM.createPortal(

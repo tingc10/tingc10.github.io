@@ -1,53 +1,44 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-
-import Image from 'components/Image/Image'
-import styles from './styles.module.scss';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import MediaPreviewTile from "../MediaPreviewTile/MediaPreviewTile";
+import Image from "components/Image/Image";
+import styles from "./styles.module.scss";
 
 class ImagePreview extends Component {
   static propTypes = {
     imageUrl: PropTypes.string.isRequired,
     title: PropTypes.string,
     index: PropTypes.number,
-    onSelectImage: PropTypes.func,
     customSizing: PropTypes.arrayOf(PropTypes.string),
-  }
+    onClick: PropTypes.func
+  };
 
   static defaultProps = {
-    customSizing: [],
-  }
+    customSizing: []
+  };
 
-  constructor() {
-    super();
-    ['handleClick'].forEach((methodName) => { this[methodName] = this[methodName].bind(this) });
-  }
-
-  handleClick(e) {
-    if (!this.props.onSelectImage) return
-    this.props.onSelectImage(e, this.props.index)
-  }
-
-  setContainerRef = (node) => {
+  setContainerRef = node => {
     this.containerRef = node;
-  }
+  };
 
   render() {
-    const { imageUrl, title, customSizing, className } = this.props
+    const { imageUrl, title, customSizing, className, index } = this.props;
     const props = {
       className: styles.image,
       src: imageUrl,
       title: title,
-      onClick: this.handleClick,
-      objectFit: 'cover',
-    }
+      objectFit: "cover"
+    };
 
     return (
-      <figure className={classnames(className, styles.container, ...customSizing.map((sizing) => styles[sizing]))} ref={this.setContainerRef}>
-        <div className={styles.imageContainer}>
-          <Image {...props} />
-        </div>
-      </figure>
+      <MediaPreviewTile
+        onClick={this.props.onClick}
+        index={index}
+        customSizing={customSizing}
+        className={className}
+      >
+        <Image {...props} />
+      </MediaPreviewTile>
     );
   }
 }

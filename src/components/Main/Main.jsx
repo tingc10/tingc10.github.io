@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import Home from "components/Home/Home";
 import ArtPortfolio from "components/ArtPortfolio/ArtPortfolio";
@@ -6,10 +6,10 @@ import Portfolio from "components/Portfolio/Portfolio";
 import PaperContainer from "../PaperContainer/PaperContainer";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import './styles.module.scss';
+import Motion from "../Motion/Motion";
 
 const Main = () => {
   const location = useLocation();
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   return (
     <PaperContainer>
       <TransitionGroup>
@@ -21,6 +21,7 @@ const Main = () => {
           <Switch location={location}>
             <Route exact path="/" component={Home} />
             <Route exact path="/code" component={Portfolio} />
+            <Route exact path="/motion" component={Motion} />
             <Route path="/art" component={ArtPortfolio} />
           </Switch>
         </CSSTransition>

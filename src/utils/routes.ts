@@ -1,5 +1,6 @@
 export const routes = {
   home: '/',
   code: '/code',
-  art: '/art'
+  art: '/art',
+  motion: '/motion'
 }

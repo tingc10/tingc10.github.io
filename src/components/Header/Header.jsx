@@ -13,6 +13,9 @@ const Header = () => (
         <NavLink activeClassName={styles.active} className={styles.navLink} to={routes.code}>Code</NavLink>
       </li>
       <li className={styles.navItem}>
+        <NavLink activeClassName={styles.active} className={styles.navLink} to={routes.motion}>Motion</NavLink>
+      </li>
+      <li className={styles.navItem}>
         <NavLink activeClassName={styles.active} className={styles.navLink} to={routes.art}>Art</NavLink>
       </li>
     </ul>

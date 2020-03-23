@@ -67,11 +67,8 @@ class ArtPortfolio extends Component {
         index: i,
         key: i,
         customSizing,
-        onSelectImage: this.handleSelectImage,
-        className: classnames(styles.image, {
-          // [styles.selectedImage]: this.state.selectedImage === i,
-          // [styles.hideImage]: this.state.selectedImage !== -1
-        })
+        onClick: this.handleSelectImage,
+        className: classnames(styles.image)
       };
       pieces.push(<ImagePreview {...imageProps} />);
     }
