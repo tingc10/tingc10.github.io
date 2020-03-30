@@ -1,0 +1,66 @@
+@import '~styles/common';
+@import '~styles/mixins/patterns';
+
+$hide-duration: 0.3s;
+
+.container {
+  @include paper-container;
+  position: relative;
+}
+
+.art-container {
+  @include apply-grid($min: 140px);
+  width: 100%;
+  grid-column: 1 / -1;
+  justify-items: stretch;
+  grid-auto-flow: dense;
+  grid-auto-rows: 180px;
+}
+
+.wrapper {
+  transition: $hide-duration opacity ease-out, 0.3s display ease 0.3s;
+}
+
+.hide-container {
+  opacity: 0;
+  display: none;
+}
+
+
+.header {
+  grid-column: 1 / -1;
+  align-self: flex-end;
+  color: $paper-white;
+}
+
+.selected-image {
+  transform: translateY(-200px);
+  z-index: 1;
+}
+
+.hide-image {
+  opacity: 0;
+}
+
+.media {
+  overflow: hidden;
+}
+
+.video {
+  height: 100%;
+}
+
+.enlarged-image {
+  cursor: pointer;
+  padding: 1em;
+  background: $paper-white;
+  border-radius: 2px;
+  max-height: 90vh;
+  width: auto;
+  max-width: 100%;
+
+  &.zoomed {
+    width: auto;
+    height: auto;
+  }
+}
