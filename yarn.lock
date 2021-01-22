@@ -1389,11 +1389,6 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/scriptjs@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@types/scriptjs/-/scriptjs-0.0.2.tgz#09a2287221a7a341fc6b95b005e4bfb2a5403538"
-  integrity sha1-CaIociGno0H8a5WwBeS/sqVANTg=
-
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -9671,11 +9666,6 @@ schema-utils@^2.5.0, schema-utils@^2.6.0, schema-utils@^2.6.1, schema-utils@^2.6
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
 
-scriptjs@^2.5.9:
-  version "2.5.9"
-  resolved "https://registry.yarnpkg.com/scriptjs/-/scriptjs-2.5.9.tgz#343915cd2ec2ed9bfdde2b9875cd28f59394b35f"
-  integrity sha512-qGVDoreyYiP1pkQnbnFAUIS5AjenNwwQBdl7zeos9etl+hYKWahjRTfzAZZYBv5xNHx7vNKCmaLDQZ6Fr2AEXg==
-
 scss-tokenizer@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz#8eb06db9a9723333824d3f5530641149847ce5d1"
@@ -10666,6 +10656,11 @@ ts-pnp@1.1.5, ts-pnp@^1.1.2:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.1.5.tgz#840e0739c89fce5f3abd9037bb091dbff16d9dec"
   integrity sha512-ti7OGMOUOzo66wLF3liskw6YQIaSsBgc4GOAlWRnIEj8htCxJUxskanMUoJOD6MDCRAXo36goXJZch+nOS0VMA==
+
+ts-react-codepen-embed@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ts-react-codepen-embed/-/ts-react-codepen-embed-0.4.0.tgz#63767949b16e09dfdbf50334ab791f919c50bf45"
+  integrity sha512-9HijGXOE4W6x2m5Hkz1ljjG6BFwB2cczqGZK37Gv9xgwdVRWyE6LNFGYrHMeMjzG+RbHZJVMOLBvSq5PV1dxJg==
 
 tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
