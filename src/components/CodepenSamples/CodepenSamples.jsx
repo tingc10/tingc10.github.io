@@ -1,19 +1,24 @@
 import React from 'react';
-import { codepenSamples } from 'assets/misc/codepen-samples';
 import CodepenEmbed from 'components/CodepenEmbed/CodepenEmbed';
 import styles from './styles.module.scss';
 import ProjectSection from '../ProjectSection/ProjectSection';
 
-export default function CodepenSamples() {
-  return codepenSamples.map((sample, index) => {
+const CodepenSamples = ({
+  codepenSamples
+}) => {
+  return codepenSamples.map((sample) => {
     const {
-      title,
-      slugHash,
-      description,
+      fields: {
+        title,
+        contentMeta: {
+          slugHash
+        },
+        description,
+      }
     } = sample;
     const penProps = { title, slugHash };
     const projectSectionProps = {
-      key: index,
+      key: slugHash,
       description,
       title
     }
@@ -27,3 +32,5 @@ export default function CodepenSamples() {
     );
   });
 }
+
+export default CodepenSamples;
