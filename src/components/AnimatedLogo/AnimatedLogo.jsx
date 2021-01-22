@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as TrailingLogo } from 'assets/ting-trail.svg'
+import { ReactComponent as TrailingLogo } from '@assets/ting-trail.svg'
 import styles from './styles.module.scss';
 
 const AnimatedLogo = () => {

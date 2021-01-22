@@ -1,4 +1,4 @@
-@import '~styles/configs/breakpoints';
+@import '~@styles/configs/breakpoints';
 
 @mixin respond-to($media...) {
   $media-list: null;

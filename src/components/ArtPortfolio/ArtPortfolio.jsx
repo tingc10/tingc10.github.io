@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import portfolioList from "assets/misc/list";
+import portfolioList from "@assets/misc/list";
 import classnames from "classnames";
 import ImagePreview from "components/ImagePreview/ImagePreview";
 import Image from "components/Image/Image";

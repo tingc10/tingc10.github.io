@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import PageHeader from "../PageHeader/PageHeader";
 import CodepenSamples from "components/CodepenSamples/CodepenSamples";
 import ProjectSection from "../ProjectSection/ProjectSection";
-import RaspberryPiImage from "assets/raspberry-pi.png";
+import RaspberryPiImage from "@assets/raspberry-pi.png";
 import { contentfulClient } from "../../utils/contentful"
 
 const Portfolio = () => {

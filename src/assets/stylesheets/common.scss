@@ -1,7 +1,7 @@
-@import '~styles/mixins/responsive';
-@import '~styles/configs/breakpoints';
-@import '~styles/configs/fonts';
-@import '~styles/configs/colors';
+@import '~@styles/mixins/responsive';
+@import '~@styles/configs/breakpoints';
+@import '~@styles/configs/fonts';
+@import '~@styles/configs/colors';
 
 @mixin link {
   color: $navy-blue;

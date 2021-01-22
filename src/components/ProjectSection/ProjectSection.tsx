@@ -4,10 +4,10 @@ import styles from './styles.module.scss';
 interface Props {
   title: string;
   description?: string;
-  renderDescription?: React.SFC;
+  renderDescription?: React.FC;
 }
 
-const ProjectSection: React.SFC<Props> = ({title, description, renderDescription: RenderedDescription, children}) => {
+const ProjectSection: React.FC<Props> = ({title, description, renderDescription: RenderedDescription, children}) => {
   return <div
     className={styles.container}>
     <section className={styles.description}>
