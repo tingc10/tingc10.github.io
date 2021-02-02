@@ -1,4 +1,13 @@
-const portfolioList = [
+import { MediaSizing } from "@src/types/MediaSizing";
+
+interface PortfolioList {
+  title: string,
+  slug: string,
+  url: string,
+  customSizing?: MediaSizing[],
+}
+
+const portfolioList: PortfolioList[] = [
   {
     title: 'Still Life with Oil',
     slug: 'still-life',
@@ -18,13 +27,13 @@ const portfolioList = [
     title: 'Brooklyn Bridge at Night',
     slug: 'brooklyn-night',
     url: 'https://s3-us-west-1.amazonaws.com/tingchen.me/art-portfolio/studio/Brooklyn+Bridge.jpg',
-    customSizing: ['large-horizontal', 'large-vertical'],
+    customSizing: [MediaSizing.LargeHorizontal, MediaSizing.LargeVertical],
   },
   {
     title: 'Setting Sun at 7 Springs',
     slug: 'setting-sun',
     url: 'https://s3-us-west-1.amazonaws.com/tingchen.me/art-portfolio/studio/Chen_14.jpg',
-    customSizing: ['large-horizontal'],
+    customSizing: [MediaSizing.LargeHorizontal],
   },
   {
     title: 'Still Life with Dolls',
@@ -55,13 +64,13 @@ const portfolioList = [
     title: 'Dragonfly',
     slug: 'dragonfly',
     url: 'https://s3-us-west-1.amazonaws.com/tingchen.me/art-portfolio/studio/IMG_4559.jpg',
-    customSizing: ['large-vertical'],
+    customSizing: [MediaSizing.LargeVertical],
   },
   {
     title: 'Realism X Abstract',
     slug: 'realism-abstract',
     url: 'https://s3-us-west-1.amazonaws.com/tingchen.me/art-portfolio/studio/IMG_4560.jpg',
-    customSizing: ['large-horizontal', 'large-vertical'],
+    customSizing: [MediaSizing.LargeHorizontal, MediaSizing.LargeVertical],
   },
   {
     title: 'Gogh Like Fields',
@@ -87,7 +96,7 @@ const portfolioList = [
     title: 'Rice Paddy',
     slug: 'rice-paddy',
     url: 'https://s3-us-west-1.amazonaws.com/tingchen.me/art-portfolio/studio/IMG_5058+copy.jpg',
-    customSizing: ['large-vertical'],
+    customSizing: [MediaSizing.LargeVertical],
   },
   // {
   //   title: 'Self Portrait',

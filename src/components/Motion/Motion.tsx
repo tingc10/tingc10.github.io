@@ -1,16 +1,13 @@
 
 import * as React from "react";
 import classnames from "classnames";
-import MediaPreviewTile, { MediaSizing } from '../MediaPreviewTile/MediaPreviewTile';
+import MediaPreviewTile from '../MediaPreviewTile/MediaPreviewTile';
 import { motionSamples } from '../../assets/misc/motion-samples';
 import styles from "./styles.module.scss";
 import PageHeader from "../PageHeader/PageHeader";
+import { MediaSizing } from '@src/types/MediaSizing'
 
-interface Props {
-
-}
-
-const Motion: React.SFC<Props> = () => {
+const Motion: React.FC<{}> = () => {
   function renderPieces() {
     const pieces = [];
     for (let i = 0; i < motionSamples.length; i++) {

@@ -1,11 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import styles from "./styles.module.scss";
-
-export enum MediaSizing {
-  LargeHorizontal = "large-horizontal",
-  LargeVertical = "large-vertical"
-}
+import {MediaSizing} from '@src/types/MediaSizing'
 
 interface Props {
   onClick?: (e: React.MouseEvent, index: number) => void;
@@ -14,7 +10,7 @@ interface Props {
   index: number;
 }
 
-const MediaPreviewTile: React.SFC<Props> = ({
+const MediaPreviewTile: React.FC<Props> = ({
   children,
   className,
   customSizing = [],

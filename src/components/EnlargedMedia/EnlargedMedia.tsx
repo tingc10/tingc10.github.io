@@ -6,11 +6,9 @@ interface Props {
 }
 
 
-const EnlargedMedia: React.SFC<Props> = ({
+const EnlargedMedia: React.FC<Props> = ({
   children,
-  onClickClose = () => {
-    return;
-  }
+  onClickClose = () => {}
 }) => {
   return (
     <div className={styles.enlargedImageContainer}>
