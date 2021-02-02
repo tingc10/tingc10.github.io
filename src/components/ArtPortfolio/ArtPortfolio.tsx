@@ -46,10 +46,22 @@ const ArtPortfolio: React.FC<{}> = () => {
       objectFit: zoomed ? "cover" : "contain" as ObjectFitProperty
     };
 
+    function setNextImage() {
+      const prevImage = selectedImage - 1;
+      setSelectedImage(prevImage > 0 ? prevImage : portfolioList.length - 1)
+    }
+    
+    function setPrevImage() {
+      const nextImage = selectedImage + 1;
+      setSelectedImage(nextImage < portfolioList.length ? nextImage : 0)
+    }
+
     return (
       <Modal>
         <EnlargedMedia
-          onClickClose={unselectImage}
+          closeMedia={unselectImage}
+          nextMedia={setNextImage}
+          prevMedia={setPrevImage}
         >
           <Image {...props} />
         </EnlargedMedia>
@@ -59,7 +71,7 @@ const ArtPortfolio: React.FC<{}> = () => {
 
     return (
       <div>
-        <PageHeader description="Drawings and paitings from when I pursued art school.">
+        <PageHeader description="Drawings and paintings from when I pursued art school.">
           Art
         </PageHeader>
         <div className={styles.artContainer}>

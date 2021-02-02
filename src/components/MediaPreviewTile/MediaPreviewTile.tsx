@@ -22,16 +22,15 @@ const MediaPreviewTile: React.FC<Props> = ({
   }
 
   return (
-    <figure
-      onClick={handleClick}
-      className={classnames(
-        className,
-        styles.container,
-        ...customSizing.map(sizing => styles[sizing])
-      )}
-    >
-      <div className={styles.mediaContainer}>{children}</div>
-    </figure>
+    <button onClick={handleClick} className={classnames(
+      className,
+      styles.container,
+      ...customSizing.map(sizing => styles[sizing])
+    )}>
+      <figure className={styles.mediaContainer}>
+        {children}
+      </figure>
+    </button>
   );
 };
 
