@@ -18,6 +18,8 @@ interface ArtPiece {
   customSizing?: MediaSizing[]
 }
 
+const DEFAULT_ENLARGED_IMAGE_WIDTH = 1000;
+
 const ArtPortfolio: React.FC<{}> = () => {
   const [selectedImage, setSelectedImage] = useState<number>(-1)
   const [zoomed, setZoomed] = useState<boolean>(false)
@@ -60,7 +62,8 @@ const ArtPortfolio: React.FC<{}> = () => {
       className: classnames(styles.enlargedImage, {
         [styles.zoomed]: zoomed
       }),
-      src: `${url}?${PROGRESSIVE_JPG_QUERY}`,
+      // TODO: Optimize for phone screen
+      src: `${url}?${PROGRESSIVE_JPG_QUERY}&w=${DEFAULT_ENLARGED_IMAGE_WIDTH}`,
       title: title,
       objectFit: zoomed ? "cover" : "contain" as ObjectFitProperty
     };

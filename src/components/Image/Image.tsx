@@ -2,11 +2,8 @@ import React, { CSSProperties, useEffect, useRef } from 'react';
 import objectFitImages from 'object-fit-images';
 import { ObjectFitProperty } from 'csstype'
 
-interface Props {
-  src: string,
-  title: string,
+interface Props extends React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
   objectFit?: ObjectFitProperty,
-  style?: React.CSSProperties
 }
 
 const Image: React.FC<Props> = (props) => {

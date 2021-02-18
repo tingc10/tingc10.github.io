@@ -15,10 +15,13 @@ interface Props {
   className?: string,
 }
 
+const DEFAULT_IMAGE_WIDTH = 700;
+
 const ImagePreview: React.FC<Props> = ({customSizing = [], imageUrl, title, index, onClick, className}) => {
   const props = {
     className: styles.image,
-    src: `${imageUrl}?${PROGRESSIVE_JPG_QUERY}`,
+    // TODO: Load correct width based on size of window
+    src: `${imageUrl}?${PROGRESSIVE_JPG_QUERY}&w=${DEFAULT_IMAGE_WIDTH}`,
     title: title,
     objectFit: "cover" as ObjectFitProperty
   };
