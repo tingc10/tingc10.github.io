@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import portfolioList from "@assets/misc/list";
 import classnames from "classnames";
 import ImagePreview from "@src/components/ImagePreview/ImagePreview";
 import Image from "@src/components/Image/Image";
@@ -8,10 +7,21 @@ import PageHeader from "../PageHeader/PageHeader";
 import EnlargedMedia from "../EnlargedMedia/EnlargedMedia";
 import Modal from "../Modal/Modal";
 import { ObjectFitProperty } from 'csstype'
+import { contentfulClient, PROGRESSIVE_JPG_QUERY } from "@src/utils/contentful";
+import { MediaSizing } from "@src/types/MediaSizing";
+import { Entry, Asset } from "contentful";
+
+interface ArtPiece {
+  title: string;
+  image: Asset;
+  slug?: string;
+  customSizing?: MediaSizing[]
+}
 
 const ArtPortfolio: React.FC<{}> = () => {
   const [selectedImage, setSelectedImage] = useState<number>(-1)
   const [zoomed, setZoomed] = useState<boolean>(false)
+  const [artPieces, setArtPieces] = useState<Entry<ArtPiece>[] | null>(null)
   
   function unselectImage() {
     setSelectedImage(-1)
@@ -19,6 +29,13 @@ const ArtPortfolio: React.FC<{}> = () => {
   }
 
   useEffect(() => {
+    async function getArtPieces() {
+      const results = await contentfulClient.getEntries<ArtPiece>({
+        content_type: 'artPiece'
+      })
+      setArtPieces(results.items)
+    }
+    getArtPieces()
     document.addEventListener("click", unselectImage);
     return () => {
       document.removeEventListener("click", unselectImage);
@@ -31,29 +48,31 @@ const ArtPortfolio: React.FC<{}> = () => {
   }
 
   function renderEnlargedImage() {
-    if (selectedImage === -1) {
+    if (selectedImage === -1 || artPieces == null) {
       return null;
     }
 
-    const selectedImageInfo = portfolioList[selectedImage];
-    const { url, title } = selectedImageInfo;
+    const selectedImageInfo = artPieces[selectedImage].fields;
+    const { image: {fields: {file: {
+      url
+    }}}, title } = selectedImageInfo;
     const props = {
       className: classnames(styles.enlargedImage, {
         [styles.zoomed]: zoomed
       }),
-      src: url,
+      src: `${url}?${PROGRESSIVE_JPG_QUERY}`,
       title: title,
       objectFit: zoomed ? "cover" : "contain" as ObjectFitProperty
     };
 
     function setNextImage() {
       const prevImage = selectedImage - 1;
-      setSelectedImage(prevImage > 0 ? prevImage : portfolioList.length - 1)
+      setSelectedImage(prevImage > 0 ? prevImage : (artPieces?.length ?? 0) - 1)
     }
     
     function setPrevImage() {
       const nextImage = selectedImage + 1;
-      setSelectedImage(nextImage < portfolioList.length ? nextImage : 0)
+      setSelectedImage(nextImage < (artPieces?.length ?? 0) ? nextImage : 0)
     }
 
     return (
@@ -76,8 +95,10 @@ const ArtPortfolio: React.FC<{}> = () => {
         </PageHeader>
         <div className={styles.artContainer}>
           {
-            portfolioList.map((artMeta, index) => {
-              const { url, title, customSizing } = artMeta;
+            artPieces?.map(({ fields }, index) => {
+              const { image: {fields: {file: {
+                url
+              }}}, title, customSizing } = fields;
               const imageProps = {
                 imageUrl: url,
                 title: title,

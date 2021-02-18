@@ -3,6 +3,7 @@ import MediaPreviewTile from "../MediaPreviewTile/MediaPreviewTile";
 import Image from "@src/components/Image/Image";
 import styles from "./styles.module.scss";
 import { MediaSizing } from '@src/types/MediaSizing'
+import { PROGRESSIVE_JPG_QUERY } from '@src/utils/contentful'
 import { ObjectFitProperty } from 'csstype'
 
 interface Props {
@@ -17,10 +18,11 @@ interface Props {
 const ImagePreview: React.FC<Props> = ({customSizing = [], imageUrl, title, index, onClick, className}) => {
   const props = {
     className: styles.image,
-    src: imageUrl,
+    src: `${imageUrl}?${PROGRESSIVE_JPG_QUERY}`,
     title: title,
     objectFit: "cover" as ObjectFitProperty
   };
+  // TODO: Fade in images
 
   return (
     <MediaPreviewTile
