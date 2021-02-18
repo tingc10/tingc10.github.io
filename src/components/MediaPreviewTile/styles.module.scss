@@ -12,6 +12,8 @@ $edge-offset: 5px;
   grid-column: span 2;
   grid-row: span 2;
   margin: 5px;
+  background-color: transparent;
+  border: none;
 
   @include respond-to($mobile) {
     grid-column: span 1;

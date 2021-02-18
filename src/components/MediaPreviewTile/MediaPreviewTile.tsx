@@ -14,23 +14,35 @@ const MediaPreviewTile: React.FC<Props> = ({
   children,
   className,
   customSizing = [],
-  onClick = () => null,
+  onClick,
   index
 }) => {
+  const classNames = classnames(
+    className,
+    styles.container,
+    ...customSizing.map(sizing => styles[sizing])
+  )
+
   function handleClick(e: React.MouseEvent) {
-    onClick(e, index);
+    if (onClick) {
+      onClick(e, index);
+    }
   }
 
-  return (
-    <button onClick={handleClick} className={classnames(
-      className,
-      styles.container,
-      ...customSizing.map(sizing => styles[sizing])
-    )}>
-      <figure className={styles.mediaContainer}>
-        {children}
-      </figure>
+  const Media = () => (
+    <figure className={styles.mediaContainer}>
+      {children}
+    </figure>
+  )
+
+  return onClick ? (
+    <button onClick={handleClick} className={classNames}>
+      <Media />
     </button>
+  ) : (
+    <div className={classNames}>
+      <Media />
+    </div>
   );
 };
 
