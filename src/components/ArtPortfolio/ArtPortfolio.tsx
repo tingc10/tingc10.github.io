@@ -6,7 +6,6 @@ import styles from "./styles.module.scss";
 import PageHeader from "../PageHeader/PageHeader";
 import EnlargedMedia from "../EnlargedMedia/EnlargedMedia";
 import Modal from "../Modal/Modal";
-import { ObjectFitProperty } from 'csstype'
 import { contentfulClient, PROGRESSIVE_JPG_QUERY } from "@src/utils/contentful";
 import { MediaSizing } from "@src/types/MediaSizing";
 import { Entry, Asset } from "contentful";
@@ -65,7 +64,7 @@ const ArtPortfolio: React.FC<{}> = () => {
       // TODO: Optimize for phone screen
       src: `${url}?${PROGRESSIVE_JPG_QUERY}&w=${DEFAULT_ENLARGED_IMAGE_WIDTH}`,
       title: title,
-      objectFit: zoomed ? "cover" : "contain" as ObjectFitProperty
+      objectFit: zoomed ? "cover" as const : "contain" as const
     };
 
     function setNextImage() {

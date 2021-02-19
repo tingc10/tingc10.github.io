@@ -1,9 +1,8 @@
 import React, { CSSProperties, useEffect, useRef } from 'react';
 import objectFitImages from 'object-fit-images';
-import { ObjectFitProperty } from 'csstype'
 
 interface Props extends React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
-  objectFit?: ObjectFitProperty,
+  objectFit?: 'cover' | 'contain',
 }
 
 const Image: React.FC<Props> = (props) => {

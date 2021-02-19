@@ -4,7 +4,6 @@ import Image from "@src/components/Image/Image";
 import styles from "./styles.module.scss";
 import { MediaSizing } from '@src/types/MediaSizing'
 import { PROGRESSIVE_JPG_QUERY } from '@src/utils/contentful'
-import { ObjectFitProperty } from 'csstype'
 
 interface Props {
   imageUrl: string,
@@ -23,7 +22,7 @@ const ImagePreview: React.FC<Props> = ({customSizing = [], imageUrl, title, inde
     // TODO: Load correct width based on size of window
     src: `${imageUrl}?${PROGRESSIVE_JPG_QUERY}&w=${DEFAULT_IMAGE_WIDTH}`,
     title: title,
-    objectFit: "cover" as ObjectFitProperty
+    objectFit: "cover" as const
   };
   // TODO: Fade in images
 
