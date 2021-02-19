@@ -4,13 +4,13 @@ import { AppContainer } from 'react-hot-loader'
 import './index.scss';
 import App from './components/App/App';
 import registerServiceWorker from './workers/registerServiceWorker';
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 
 ReactDOM.render((
   <AppContainer>
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </AppContainer>
 ), document.getElementById('root'));
 registerServiceWorker();
@@ -21,9 +21,9 @@ if (module.hot) {
     const NextApp = require('./components/App/App').default;
     ReactDOM.render((
       <AppContainer>
-        <BrowserRouter>
+        <HashRouter>
           <NextApp/>
-        </BrowserRouter>
+        </HashRouter>
       </AppContainer>
     ), document.getElementById('root'));
   });
